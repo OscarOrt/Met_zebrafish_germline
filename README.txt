@@ -1,4 +1,4 @@
-##Meth_zebrafish_germline
+Analysis code for the Methylation in Zebrafish Germline code
 
 This repository is intended to provide the code used for the bioinformatic analysis for the project Zebrafish preserve germline epigenetic memory globally but demethylate and amplify sex-linked rDNA during feminisation.
 
