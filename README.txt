@@ -1,4 +1,4 @@
-Analysis code for the Methylation in Zebrafish Germline code
+Analysis code for the Methylation in Zebrafish Germline project
 
 This repository is intended to provide the code used for the bioinformatic analysis for the project Zebrafish preserve germline epigenetic memory globally but demethylate and amplify sex-linked rDNA during feminisation.
 
@@ -17,7 +17,7 @@ The code is implemented in R (v3.4.4) and the following libraries:
 Probes of 1 Mb through the zebrafish genome were created in SeqMonk (v1.43.0)to quantify overrepresentated regions thought the genome. This code plots the results obtained.
 
 - Ideogram
-This code plots an ideogram highlighting the peak obtained previously.
+This code plots an ideogram highlighting the peak observed in the previous analysis.
 
 - Coverage plot
 BAM files obtained by mapping reads wit Bowtie2 v(2.3.2) as mention in the manuscript were used for this analysis. This code plots the reads mapped to the genomic region of interest.
@@ -26,6 +26,7 @@ BAM files obtained by mapping reads wit Bowtie2 v(2.3.2) as mention in the manus
 This code plots the location of the amplified region and its relation with the sex linked SNPs obtained in a previous study (Wilson et al, 2014)
 
 - Relation amplification - methylation
-This code 
+This code plots the relation between rDNA and amplification in the zebrafish germline.
 
 - Summary amplification
+This code plots a summary for the results obtained.

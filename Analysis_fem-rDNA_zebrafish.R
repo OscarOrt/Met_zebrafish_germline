@@ -7,7 +7,7 @@ library(dplyr)
 library(reshape)
 
 # Set directory
-###
+setwd("~/Documents/GitHub/Met_zebrafish_germline/Data")
 
 ############################################################
 # Grand plot                                               #
@@ -114,48 +114,25 @@ p + geom_point(aes(colour = factor(Strain)),size = 3) +
 ############################################################
 
 # Load data and transform variables
-data_fig_5b <- read.csv2("fem_rDNA.csv",sep = ",",stringsAsFactors = FALSE,dec=".")
+data_fig_5b <- read.csv2("data_fem_rDNA.csv",sep = ",",stringsAsFactors = FALSE,dec=",")
 
-data_cleaned_fig_5b = data_fig_5b[data_fig_5b$type=="egfp",]
-data_cleaned_fig_5b = data_cleaned_fig_5b[data_cleaned_fig_5b$n_calls_fem_rDNA>10,]
-#data_cleaned_fig_5b = data_cleaned_fig_5b[data_cleaned_fig_5b$sex!="pool",]
+data_cleaned_fig_5b = data_fig_5b[data_fig_5b$CG_calls>10,]
 
-p <- ggplot(data_cleaned_fig_5b, aes(per_reads_fem_rDNA,met_rDNA))
+data_cleaned_fig_5b$Amplification
+p <- ggplot(data_cleaned_fig_5b, aes(Amplification,CG_met))
 
-
-p + geom_point(aes(colour = factor(sex)),size = 9) +
-  scale_color_manual(values=c("#FFB6C1","#ff0000","#add8e6","#0000ff","#808080"))+
+p + geom_point(aes(colour = factor(Label)),size = 6) +
+  scale_color_manual(values=c("#808080","#FFB6C1","#add8e6","#FF00FF",
+                              "#ff0000","#0000ff","#00AA00"))+
   geom_vline(xintercept = 1, linetype= "dashed", color = "black")+
-  xlim(0,25) + ylim(0,100) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.background = element_blank(),
         panel.border = element_blank(),
-        axis.line = element_line(size=0.5))
+        axis.line = element_line(size=0.5)) +
+  scale_x_log10()
 
-# 1250 x 1100
-
-############################################################
-# Violin plot methylation rDNA                             #
-############################################################
-
-raw_data_fig_5c <- read.csv2("Potok_Bogdanovic.txt",sep = "\t",stringsAsFactors = FALSE,dec=".")
-probes_fig_5c <- select(raw_data_fig_5c, Eggs, Sperm, X2_16_cells, X64_cells, X256_cells,
-                        sphere, epiboly, X24hpf, X48hpf, muscle)
-mdata <- melt(probes_fig_5c)
-
-p <- ggplot(mdata, aes(x=variable, y=value)) + 
-  geom_violin(scale = "width",width=0.25) +
-  stat_summary(fun.y=mean, geom="point", shape=16, size=2) +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        panel.background = element_blank(),
-        panel.border = element_blank(),
-        axis.line = element_line(size=0.5))
-p
-
-
-############################################################
+##########################################################
 # Summary amplification                                    #
 ############################################################
 
