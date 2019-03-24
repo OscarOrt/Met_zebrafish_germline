@@ -5,12 +5,10 @@ library(biovizBase)
 library(BSgenome.Drerio.UCSC.GRCz11)
 library(dplyr)
 library(reshape)
+library(ggplot2)
 
 # Set directory
-setwd("~/Documents/GitHub/Met_zebrafish_germline/Data")
-
 setwd("~/Documents/GitHub/Met_zebrafish_germline")
-setwd("~/Syncplicity Folders/Met_rDNA_zebrafish_Ortega2018/Revised")
 
 ############################################################
 # Grand plot                                               #
