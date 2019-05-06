@@ -155,6 +155,8 @@ sum(data_cleaned_fem_rDNA_germline$per_reads_fem_rDNA>1)
 group_1 <- data_cleaned_fem_rDNA[data_cleaned_fem_rDNA$met_rDNA > 35,]
 mean(group_1$met_rDNA)
 sd(group_1$met_rDNA)
+mean(group_1$per_reads_fem_rDNA)
+sd(group_1$per_reads_fem_rDNA)
 
 # Group 2
 
@@ -164,6 +166,9 @@ mean(group_2$met_rDNA)
 sd(group_2$met_rDNA)
 min(group_2$per_reads_fem_rDNA)
 max(group_2$per_reads_fem_rDNA)
+mean(group_2$per_reads_fem_rDNA)
+sd(group_2$per_reads_fem_rDNA)
+
 
 # Group 3
 
